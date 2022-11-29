@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import { BrowserRouter, Router,Route, Routes } from 'react-router-dom';
+import Home from './home/Home'
 import SignUp from './signUp/SignUp'
 import Login from './login/Login'
 import Library from './publicLibrary/PublicLibrary'
@@ -11,7 +12,7 @@ const App = () => {
   return (
     <BrowserRouter>
         <Routes>
-          <Route path="/" element={<SignUp/>}/>
+          <Route path="/" element={<Home/>}/>
           <Route path="/signUp" element={<SignUp/>}/>
           <Route path="/login" element={<Login/>}/>
           <Route path="/library" element={<Library/>}/>
