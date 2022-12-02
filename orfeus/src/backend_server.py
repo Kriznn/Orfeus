@@ -22,8 +22,8 @@ user = Table(
    Column('account_creation_date', String), 
 )
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:coolcool@127.0.0.1:3306/mydb'
-engine = create_engine("mysql+pymysql://root:coolcool@127.0.0.1:3306/mydb", echo=True)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:root@127.0.0.1:3306/mydb'
+engine = create_engine("mysql+pymysql://root:root@127.0.0.1:3306/mydb", echo=True)
 db = SQLAlchemy(app)
 CORS(app)
 

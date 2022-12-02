@@ -1,24 +1,15 @@
 import React from "react";
-import "./home.css";
 
 import { Component } from "react";
 import { Link } from "react-router-dom";
 
-export default class Home extends Component {
+export default class accountProfile extends Component {
   render() {
     return (
       <body>
-        <div id="hamburger" class="sidebar">
-          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">
-            &times;
-          </a>
-          <a href="#">Home Page</a>
-          <a href="./signUp">Account Creation</a>
-          <a href="./login">Login</a>
-        </div>
-        <div className="home-page">
-          <h1>Orfeus</h1>
-          <div>Web based music generation.</div>
+        <div className="account-page">
+          <h1>Profile</h1>
+          <div>Welcome to your user profile!.</div>
           <br></br>
           <text>
             Generate new music with machine learning.
