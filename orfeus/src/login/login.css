@@ -159,7 +159,7 @@
 
 body {
   background-color: rgb(0, 0, 0);
-  background-image: linear-gradient(to right, rgb(82, 82, 82), rgb(0, 0, 0));
+  background-image: linear-gradient(to right, rgb(22, 1, 20), rgb(22, 1, 20));
 }
 
 h3 {
@@ -170,7 +170,7 @@ form {
   display: flex;
   align-items: center;
   flex-direction: column;
-  background-color: rgb(147, 65, 147);
+  background-color: rgb(153, 62, 153);
   margin-left: 600px;
   margin-right: 600px;
   margin-top: 200px;
@@ -182,7 +182,7 @@ input {
   padding: 10px 32px;
   text-align: center;
   border-radius: 15px;
-  border-color: white;
+  border-color: rgb(255, 255, 255);
 }
 
 .form-control {
@@ -197,21 +197,39 @@ label {
 
 .tail,
 .wholeForm {
-  color: white;
+  color: rgb(255, 255, 255);
   margin: 20px;
-  border: 10px solid rgb(189, 38, 206);
-  padding: 10px;
-  margin: 10px;
-  background-color: rgb(189, 38, 206);
+  border: 10px solid rgb(0, 0, 0);
+  padding: 20px;
+  margin: 1px;
+  background-color: rgb(0, 0, 0);
   border-radius: 25px;
   margin-bottom: 20px;
+  text-align: center;
+}
+
+.bubbleForm {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  text-align: center;
+  padding: 0px 23px;
+  margin: 5px 0;
+  width: 300px;
+  line-height: 40px;
+  margin-bottom: 10px;
+}
+
+.topForm {
+  background-image: linear-gradient(to right, rgb(25, 25, 25), rgb(56, 27, 54));
 }
 
 button[type="login"],
 button[type="submit"] {
-  border-radius: 15px;
-  border-color: white;
-  background-color: white;
+  color: white;
+  border-radius: 10px;
+  border-color: rgb(207, 40, 185);
+  background-color: rgb(207, 40, 185);
   margin: 10px;
   font-family: "Arial", Sans-serif;
 }

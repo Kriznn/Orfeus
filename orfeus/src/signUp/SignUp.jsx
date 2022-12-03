@@ -1,15 +1,15 @@
 import "./signUp.css";
-import Form from "./Form"
+import Form from "./Form";
 
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 export default class SignUp extends Component {
   render() {
     return (
-      <form>
+      <form className="topForm">
         <h3>Sign Up</h3>
         <div className="wholeForm">
-          <Form/>
+          <Form />
         </div>
         <p className="tail">
           Already Registered?

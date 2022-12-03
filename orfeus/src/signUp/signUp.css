@@ -117,7 +117,7 @@
 }
 
 .formFieldCheckboxLabel {
-  color: #646f7d;
+  color: #8c929a;
   font-size: 0.9em;
 }
 
@@ -144,17 +144,17 @@
 }
 
 body {
-  background-color: rgb(15, 5, 5);
+  background-color: rgb(151, 60, 60);
 }
 
 h3 {
-  color: white;
+  color: rgb(252, 252, 252);
 }
 form {
   display: flex;
   align-items: center;
   flex-direction: column;
-  background-color: purple;
+  background-color: rgb(32, 30, 31);
   margin-left: 400px;
   margin-right: 400px;
   margin-top: 100px;
