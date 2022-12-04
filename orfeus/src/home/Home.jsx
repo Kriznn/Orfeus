@@ -15,24 +15,33 @@ export default class Home extends Component {
           <a href="#">Home Page</a>
           <a href="./signUp">Account Creation</a>
           <a href="./login">Login</a>
+          <h1 className="header1">ORFEUS</h1>
         </div>
-        <div className="home-page">
-          <h1>Orfeus</h1>
-          <div>Web based music generation.</div>
-          <br></br>
+        <div className="home-page-a">
+          <div class="container">
+            <h2 class="title">
+              <span class="title-word title-word-1">Web </span>
+              <span class="title-word title-word-2">based </span>
+              <span class="title-word title-word-3">music </span>
+              <span class="title-word title-word-4">generation</span>
+            </h2>
+          </div>
+        </div>
+        <br></br>
+        <div className="home-page-2">
           <text>
             Generate new music with machine learning.
-            <ul>
-              <li>Create an account</li>
-              <li>Upload your own music</li>
-              <li>Pick new genres to influence your music</li>
-              <li>Download and save music files</li>
-            </ul>
+            <div class="step1">Create an Account</div>
+            <div class="step2">Upload your own music</div>
+            <div class="step3">Pick new genres to influence your music</div>
+            <div class="step4">Download and save music files</div>
           </text>
           <Link to="./login">
             <button type="home-login-btn">Login</button>
           </Link>
-          <Link to="./signUp">Create an Account</Link>
+          <Link to="./signUp">
+            <button type="home-account-btn">Create an Account</button>
+          </Link>
         </div>
       </body>
     );
