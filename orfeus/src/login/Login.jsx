@@ -1,6 +1,6 @@
-import "./login.css"
-import React, { Component } from 'react';
-import {Link} from 'react-router-dom';
+import "./login.css";
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 export default class Login extends Component {
   render() {
@@ -9,11 +9,7 @@ export default class Login extends Component {
         <h3>Login</h3>
         <div className="mb-3">
           <label>Username</label>
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Username"
-          />
+          <input type="text" className="form-control" placeholder="Username" />
         </div>
         <div className="mb-3">
           <label>Password</label>
@@ -28,13 +24,14 @@ export default class Login extends Component {
             Login
           </button>
         </div>
-        <p> Need to Create an Account?
-            <Link to="/signUp"><button>
-              Create an Account
-            </button>
-            </Link>
-            </p>
+        <p>
+          {" "}
+          Need to Create an Account?
+          <Link to="/signUp">
+            <button>Create an Account</button>
+          </Link>
+        </p>
       </form>
-    )
+    );
   }
 }

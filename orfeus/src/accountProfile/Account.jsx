@@ -1,4 +1,4 @@
-import React from "react";
+import "./account.css";
 
 import { Component } from "react";
 import { Link } from "react-router-dom";
@@ -8,7 +8,7 @@ export default class accountProfile extends Component {
     return (
       <body>
         <div className="account-page">
-          <h1>Profile</h1>
+          <h1 class="accountProfile">Profile</h1>
           <div>Welcome to your user profile!.</div>
           <br></br>
           <text>

@@ -15,6 +15,8 @@ export default class Home extends Component {
           <a href="#">Home Page</a>
           <a href="./signUp">Account Creation</a>
           <a href="./login">Login</a>
+          <a href="./account">Profile</a>
+          <a href="./Generate">Make Music</a>
           <h1 className="header1">ORFEUS</h1>
         </div>
         <div className="home-page-a">
