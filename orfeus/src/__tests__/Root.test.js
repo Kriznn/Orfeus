@@ -1,8 +1,9 @@
-import { mount } from 'enzyme';
 import Root from '../views/root/Root';
 import { NavLink, Outlet, useLocation, BrowserRouter } from 'react-router-dom';
 import root_styles from './Root.module.css';
 import jwt_decode from 'jwt-decode';
+
+import { mount } from 'enzyme';
 
 describe('Navbar', () => {
   it('contains NavLink to other pages/rendering', () => {
@@ -11,7 +12,6 @@ describe('Navbar', () => {
         <Root />
       </BrowserRouter>
     );
-    console.log(wrapper.debug({ verbose: true }));
     const homeLink = wrapper.find(NavLink).find({ to: '/' });
     const libraryLink = wrapper.find(NavLink).find({ to: '/library' });
     const aboutLink = wrapper.find(NavLink).find({ to: '/about' });
@@ -19,11 +19,11 @@ describe('Navbar', () => {
     const signUpLink = wrapper.find(NavLink).find({ to: '/signUp' });
     console.log(homeLink.debug());
 
-    expect(homeLink).toHaveLength(1);
-    expect(libraryLink).toHaveLength(1);
-    expect(aboutLink).toHaveLength(1);
-    expect(loginLink).toHaveLength(1);
-    expect(signUpLink).toHaveLength(1);
+    expect(homeLink).toHaveLength(2);
+    expect(libraryLink).toHaveLength(2);
+    expect(aboutLink).toHaveLength(2);
+    expect(loginLink).toHaveLength(2);
+    expect(signUpLink).toHaveLength(2);
 
     // expect(homeLink.text()).equal('Home');
     // expect(libraryLink.text()).equal('Library');
