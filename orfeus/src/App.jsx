@@ -15,6 +15,7 @@ import About from './views/about/About';
 
 import './app.css';
 import Root from './views/root/Root';
+import NotFound from './views/root/NotFound';
 
 function App() {
   const router = createBrowserRouter([
@@ -75,6 +76,10 @@ function App() {
         {
           path: 'about',
           element: <About />,
+        },
+        {
+          path: '*',
+          element: <NotFound />,
         },
       ],
     },

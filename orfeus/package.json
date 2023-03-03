@@ -20,6 +20,7 @@
     "react-admin": "^4.6.0",
     "react-bootstrap": "^2.7.2",
     "react-dom": "^18.2.0",
+    "react-icons": "^4.7.1",
     "react-player": "^2.11.2",
     "react-rating-stars-component": "^2.2.0",
     "react-router-dom": "^6.4.4",
@@ -55,6 +56,9 @@
     ]
   },
   "devDependencies": {
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.7",
+    "jest": "^27.5.1",
     "url-loader": "^4.1.1"
   }
 }
