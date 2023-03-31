@@ -6,6 +6,8 @@ import { useNavigate } from 'react-router-dom';
 import login_styles from './Login.module.css';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Button from '@material-ui/core/Button';
+
 
 const baseURL = 'http://127.0.0.1:4000/';
 
@@ -51,10 +53,9 @@ function Form() {
   return (
     <>
       {data.map((input, idx) => (
-        <div className={login_styles.bubbleForm}>
+        <div>
           <ToastContainer />
           <Input
-            className={login_styles.login_input}
             key={idx}
             type={type[idx]}
             autoComplete={type[idx] === 'password' ? 'current-password' : ''}
@@ -66,14 +67,10 @@ function Form() {
         </div>
       ))}
       {
-        <div className={login_styles.d_grid}>
-          <button
-            type="button"
-            className={login_styles.btn_btn_primary}
-            onClick={handleClick}
-          >
+        <div>
+          <Button variant="contained" color="primary" onClick={handleClick}>
             Login
-          </button>
+          </Button>
         </div>
       }
       {/* {data.map((d, i) => (

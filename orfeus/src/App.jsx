@@ -12,15 +12,46 @@ import PrivacyAccount from './views/Privacy/userPrivacy';
 import UserList from './views/userList/userList';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import About from './views/about/About';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 import './app.css';
 import Root from './views/root/Root';
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#007bff',
+      // main: '#FF0000',
+    },
+    secondary: {
+      main: '#6c757d',
+    },
+  },
+  // palette: {
+  //   primary: {
+  //     light: '#757ce8',
+  //     main: '#3f50b5',
+  //     dark: '#002884',
+  //     contrastText: '#fff',
+  //   },
+  //   secondary: {
+  //     light: '#ff7961',
+  //     main: '#f44336',
+  //     dark: '#ba000d',
+  //     contrastText: '#000',
+  //   },
+  // },
+});
 
 function App() {
   const router = createBrowserRouter([
     {
       path: '/',
-      element: <Root />,
+      element: (
+        <ThemeProvider theme={theme}>
+          <Root />
+        </ThemeProvider>
+      ),
       children: [
         {
           index: true,
@@ -85,5 +116,12 @@ function App() {
     </div>
   );
 }
+function ThemedApp() {
+  return (
+    <ThemeProvider theme={theme}>
+      <App />
+    </ThemeProvider>
+  );
+}
 
-export default App;
+export default ThemedApp;

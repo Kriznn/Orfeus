@@ -1,12 +1,51 @@
+import { Link, Outlet, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { NavLink, Outlet, useLocation } from "react-router-dom";
-import root_styles from "./Root.module.css";
+import { Link as RouterLink, useLocation } from "react-router-dom";
+import {
+  AppBar,
+  Toolbar,
+  Button,
+  IconButton,
+  Menu,
+  MenuItem,
+  ListItemIcon,
+  ListItemText,
+  Typography,
+  Avatar,
+  useTheme
+} from "@mui/material";
 import jwt_decode from "jwt-decode";
 
+
+const styles = ({
+  root: {
+    flexGrow: 1,
+  },
+  title: {
+    flexGrow: 1,
+  },
+  link: {
+    color: "white",
+    textDecoration: "none",
+    "&:hover": {
+      textDecoration: "underline",
+    },
+  },
+  activeLink: {
+    textDecoration: "underline",
+  },
+  logo: {
+    src: "assets/orfeus_logo.png"
+  }
+});
+
 const Root = () => {
+  const [anchorEl, setAnchorEl] = useState(null);
   const [loggedIn, setLoggedIn] = useState(false);
   const [decodedToken, setDecodedToken] = useState(null);
   const location = useLocation();
+  const navigate = useNavigate();
+  const theme = useTheme();
 
   useEffect(() => {
     const accessToken = localStorage.getItem("access_token");
@@ -24,81 +63,135 @@ const Root = () => {
     localStorage.removeItem("access_token");
     setLoggedIn(false);
     setDecodedToken(null);
+    setAnchorEl(null);
+    navigate("/");
   };
 
   return (
-    <div className={root_styles.navbar}>
-      <NavLink to={"/"} className={root_styles.navLink}>
-        HOME
-      </NavLink>
-      <NavLink
-        exact
-        to={"/library"}
-        className={root_styles.navLink}
-        activeClassName={root_styles.activeLink}
-      >
-        LIBRARY
-      </NavLink>
-      <NavLink to={"/about"} className={root_styles.navLink}>
-        ABOUT
-      </NavLink>
-      {loggedIn ? (
-        <>
-          {/* <NavLink to={"/review"} className={root_styles.navLink}>
-            REVIEW
-          </NavLink> */}
-          <NavLink to={"/generate"} className={root_styles.navLink}>
-            GENERATE MUSIC
-          </NavLink>
-          <NavLink to={"/account"} className={root_styles.navLink}>
-            PROFILE
-          </NavLink>
-          <NavLink
-            to={"/"}
-            className={root_styles.navLink}
-            onClick={handleLogout}
+    <div className={styles.root}>
+      <AppBar position="fixed">
+        <Toolbar>
+          {/* <Link to="/">
+
+            <img
+              src={styles.logo.src}
+              height="50"
+              width="50"
+              marginRight="0.75rem"
+            />
+          </Link> */}
+          <Button
+            component={RouterLink}
+            to={"/library"}
+            color="inherit"
+            className={styles.link}
+            activeClassName={styles.activeLink}
           >
-            LOGOUT
-          </NavLink>
-          {decodedToken && (
-            <div
-              style={{ color: "white" }}
-              className={root_styles.account_image}
-            >
-              <a
-                href="/account"
-                style={{
-                  display: "inline-block",
-                  verticalAlign: "middle",
-                  color: "white",
-                }}
+            LIBRARY
+          </Button>
+          <Button
+            component={RouterLink}
+            to={"/about"}
+            color="inherit"
+            className={styles.link}
+            activeClassName={styles.activeLink}
+          >
+            ABOUT
+          </Button>
+          {loggedIn ? (
+            <>
+              <Button
+                component={RouterLink}
+                to={"/generate"}
+                color="inherit"
+                className={styles.link}
+                activeClassName={StyleSheetList.activeLink}
               >
-                {decodedToken.sub}
-              </a>
-              <img
-                src="assets/person.jpeg"
-                alt=""
-                style={{
-                  display: "inline-block",
-                  verticalAlign: "middle",
-                  marginLeft: "10px",
-                  width: "30px",
-                  height: "30px",
-                }}
-              />
-            </div>
+                GENERATE MUSIC
+              </Button>
+              <Button
+                component={RouterLink}
+                to={"/account"}
+                color="inherit"
+                className={styles.link}
+                activeClassName={styles.activeLink}
+              >
+                PROFILE
+              </Button>
+              <div style={{ display: "flex", flexGrow: 1 }}>
+                <div style={{ marginLeft: "auto" }}>
+                  <IconButton
+                    color="inherit"
+                    onClick={(event) => setAnchorEl(event.currentTarget)}
+                  >
+                    {decodedToken && (
+                      <>
+                        <Typography variant="body1">{decodedToken.sub}</Typography>
+                        <Avatar
+                          alt={decodedToken.sub}
+                          src="/assets/person.jpeg"
+                          className={styles.avatar}
+                          style={{ marginLeft: "0.5rem" }}
+                        />
+                      </>
+                    )}
+                    {!decodedToken && <Avatar className={styles.avatar} />}
+                  </IconButton>
+                </div>
+              </div>
+              <Menu
+                id="profile-menu"
+                anchorEl={anchorEl}
+                keepMounted
+                open={Boolean(anchorEl)}
+                onClose={() => setAnchorEl(null)}
+              >
+                <MenuItem
+                  component={RouterLink}
+                  to={"/account"}
+                  onClick={() => setAnchorEl(null)}
+                >
+                  <ListItemIcon>
+                    <Avatar
+                      alt={decodedToken?.sub}
+                      src="/assets/person.jpeg"
+                    />
+                  </ListItemIcon>
+                  <ListItemText
+                    primary={decodedToken?.sub}
+                    secondary="My account"
+                  />
+                </MenuItem>
+                <MenuItem onClick={handleLogout}>
+                  <ListItemText primary="Logout" />
+                </MenuItem>
+              </Menu>
+            </>
+          ) : (
+            <>
+              <Button
+                component={RouterLink}
+                to={"/login"}
+                color="inherit"
+                className={styles.link}
+                activeClassName={styles.activeLink}
+                theme={theme}
+              >
+                LOGIN
+              </Button>
+              <Button
+                component={RouterLink}
+                to={"/signUp"}
+                color="inherit"
+                className={styles.link}
+                activeClassName={styles.activeLink}
+              >
+                SIGN UP
+              </Button>
+            </>
           )}
-        </>
-      ) : (
-        <>
-          <NavLink to={"/login"} className={root_styles.navLink}>
-            LOGIN
-          </NavLink>
-          <NavLink to={"/signUp"} className={root_styles.navLink}>
-            SIGN UP
-          </NavLink>
-        </>
-      )}
+        </Toolbar>
+      </AppBar>
       <div>
         <Outlet />
       </div>
